@@ -1,0 +1,8 @@
+<form>
+<div class="form-group">
+    <label>First Name: <input type="text" class="form-control" [(ngModel)]="contact.firstName" name="firstName"></label>
+    <label>Last Name: <input type="text" class="form-control" [(ngModel)]="contact.lastName" name="lastName"></label>
+    <label>Phone Number: <input type="text" class="form-control" [(ngModel)]="contact.phoneNumber" name="phoneNumber"></label>
+    <label>Email: <input type="text" class="form-control" [(ngModel)]="contact.email" name="email"></label>
+    <button class="btn btn-primary" (click)="saveChanges()">Save</button>
+</div>

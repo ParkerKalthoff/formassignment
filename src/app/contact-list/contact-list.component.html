@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Phone #</th>
+            <th scope="col">Email Address</th>
+            <th><button class="btn btn-primary" (click)="addContact()">Add a Contact</button></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr scope="row" *ngFor="let contact of contacts; let c=index" (click)="selectContact(contact)" [class.selected]="contact === selectedContact">
+            <td>{{contact.firstName}}</td>
+            <td>{{contact.lastName}}</td>
+            <td>{{contact.phoneNumber}}</td>
+            <td>{{contact.email}}</td>
+            <!-- Left Side Buttons-->
+            <td>
+                <button class="btn btn-warning" (click)="editContact(c)">Edit</button>
+                <button class="btn btn-danger" (click)="deleteContact(contact)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="selectedContact.firstName != null" style="margin-left:25%">
+    <app-contact-edit [contact]="selectedContact"></app-contact-edit>
+</div>
